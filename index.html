@@ -80,12 +80,14 @@
   <div>
     <div class="container" style="padding: 60px;">
       <h1>
-        Tengo algo que decirte
+        Tengo algo que decirte sobre La Perdida de biodiversidad, enfocando a los Felinos en peligro de extinción
       </h1>
-      <img src="img/leopardo-de-las-nieves.webp" alt="leopardo de las nieves" class="img-fluid">
+      <img src="img/felino-tigre-cascada.jpg" alt="biodiversidad felina" class="img-fluid">
       <p>
         Amo a los gatos y al cuidar de ellos, pensé en los gatos mayores, los felinos que viven en las selvas, montañas
-        y los bósques. Me di cuenta de que lamentablemente algunos estan en peligro de extinción.
+        y los bósques. Me di cuenta de que lamentablemente algunos estan en peligro de extinción. <hr> ¿Sabías que muchos felinos, como el Jaguar, Ocelote, Tigrillo, entre otros están en peligro de extinción? Una de las razones es cómo usamos la energía.
+
+       Cuando se destruyen bosques para sacar petróleo o construir empresas, los animales pierden su hogar. Además, el cambio climático causado por usar demasiada energía contaminante también afecta su comida y su entorno.
       </p>
       <hr>
       <p>
@@ -114,155 +116,168 @@
         <hr>
       </p>
     </div>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<title>CatGPT Chat</title>
-<style>
-/* Burbuja flotante */
-#catgpt-bubble {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    background-color: orange;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 60px;
-    font-size: 30px;
-    cursor: pointer;
-    z-index: 9999;
-    transition: transform 0.2s;
-}
-#catgpt-bubble:hover {
-    transform: scale(1.2);
-}
+    <!DOCTYPE html>
+    <html lang="es">
 
-/* Ventana de chat */
-#catgpt-window {
-    position: fixed;
-    bottom: 100px;
-    right: 20px;
-    width: 300px;
-    height: 400px;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    display: none;
-    flex-direction: column;
-    z-index: 9998;
-}
+    <head>
+      <meta charset="UTF-8">
+      <title>CatGPT Chat</title>
+      <style>
+        /* Burbuja flotante */
+        #catgpt-bubble {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          width: 60px;
+          height: 60px;
+          background-color: orange;
+          border-radius: 50%;
+          text-align: center;
+          line-height: 60px;
+          font-size: 30px;
+          cursor: pointer;
+          z-index: 9999;
+          transition: transform 0.2s;
+        }
 
-#catgpt-header {
-    background-color: orange;
-    padding: 10px;
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
+        #catgpt-bubble:hover {
+          transform: scale(1.2);
+        }
 
-#catgpt-messages {
-    flex: 1;
-    padding: 10px;
-    overflow-y: auto;
-}
+        /* Ventana de chat */
+        #catgpt-window {
+          position: fixed;
+          bottom: 100px;
+          right: 20px;
+          width: 300px;
+          height: 400px;
+          background: rgba(255, 255, 255, 0.95);
+          border-radius: 10px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+          display: none;
+          flex-direction: column;
+          z-index: 9998;
+        }
 
-#catgpt-input {
-    padding: 10px;
-    border: none;
-    border-top: 1px solid #ccc;
-    width: calc(100% - 20px);
-}
-.user-message { text-align: right; margin-bottom: 10px; }
-.ai-message { text-align: left; margin-bottom: 10px; }
-</style>
-</head>
-<body>
+        #catgpt-header {
+          background-color: orange;
+          padding: 10px;
+          font-weight: bold;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-top-left-radius: 10px;
+          border-top-right-radius: 10px;
+        }
 
-<!-- Burbuja flotante -->
-<div id="catgpt-bubble">😺</div>
+        #catgpt-messages {
+          flex: 1;
+          padding: 10px;
+          overflow-y: auto;
+        }
 
-<!-- Ventana de chat -->
-<div id="catgpt-window">
-    <div id="catgpt-header">
-        CatGPT 😸
-        <button id="catgpt-close">X</button>
-    </div>
-    <div id="catgpt-messages"></div>
-    <input id="catgpt-input" type="text" placeholder="Escribe algo..." />
-</div>
+        #catgpt-input {
+          padding: 10px;
+          border: none;
+          border-top: 1px solid #ccc;
+          width: calc(100% - 20px);
+        }
 
-<script>
-const bubble = document.getElementById('catgpt-bubble');
-const chatWindow = document.getElementById('catgpt-window');
-const closeBtn = document.getElementById('catgpt-close');
-const input = document.getElementById('catgpt-input');
-const messages = document.getElementById('catgpt-messages');
+        .user-message {
+          text-align: right;
+          margin-bottom: 10px;
+        }
 
-// Abrir y cerrar ventana
-bubble.addEventListener('click', () => chatWindow.style.display = 'flex');
-closeBtn.addEventListener('click', () => chatWindow.style.display = 'none');
+        .ai-message {
+          text-align: left;
+          margin-bottom: 10px;
+        }
+      </style>
+    </head>
 
-// Función para agregar mensajes
-function addMessage(text, sender) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    div.className = sender === 'user' ? 'user-message' : 'ai-message';
-    messages.appendChild(div);
-    messages.scrollTop = messages.scrollHeight;
-}
+    <body>
 
-// Aquí va tu interacción con la IA
-input.addEventListener('keypress', async (e) => {
-    if(e.key === 'Enter' && input.value.trim() !== '') {
-        const userMessage = input.value;
-        addMessage(userMessage, 'user');
-        input.value = '';
+      <!-- Burbuja flotante -->
+      <div id="catgpt-bubble">😺</div>
 
-        try {
-            const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      <!-- Ventana de chat -->
+      <div id="catgpt-window">
+        <div id="catgpt-header">
+          CatGPT 😸
+          <button id="catgpt-close">X</button>
+        </div>
+        <div id="catgpt-messages"></div>
+        <input id="catgpt-input" type="text" placeholder="Escribe algo..." />
+      </div>
+
+      <script>
+        const bubble = document.getElementById('catgpt-bubble');
+        const chatWindow = document.getElementById('catgpt-window');
+        const closeBtn = document.getElementById('catgpt-close');
+        const input = document.getElementById('catgpt-input');
+        const messages = document.getElementById('catgpt-messages');
+
+        // Abrir y cerrar ventana
+        bubble.addEventListener('click', () => chatWindow.style.display = 'flex');
+        closeBtn.addEventListener('click', () => chatWindow.style.display = 'none');
+
+        // Función para agregar mensajes
+        function addMessage(text, sender) {
+          const div = document.createElement('div');
+          div.textContent = text;
+          div.className = sender === 'user' ? 'user-message' : 'ai-message';
+          messages.appendChild(div);
+          messages.scrollTop = messages.scrollHeight;
+        }
+
+        // Aquí va tu interacción con la IA
+        input.addEventListener('keypress', async (e) => {
+          if (e.key === 'Enter' && input.value.trim() !== '') {
+            const userMessage = input.value;
+            addMessage(userMessage, 'user');
+            input.value = '';
+
+            try {
+              const response = await fetch('https://api.openai.com/v1/chat/completions', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer TU_API_KEY_AQUI'
+                  'Content-Type': 'application/json',
+                  'Authorization': 'Bearer TU_API_KEY_AQUI'
                 },
                 body: JSON.stringify({
-                    model: "gpt-4",
-                    messages: [
-                        { role: "system", content: "Eres CatGPT, un asistente gatuno amigable, tu personalidad va a ser siempre directo al grano. Solo responde basado en la información de la página: Felinos en En Accion es una pagina que busca solucionar la perdida de biodiversidad, enfocada en los felinos que estan en peligro de extincion. " },
-                        { role: "user", content: userMessage }
-                    ]
+                  model: "gpt-4",
+                  messages: [
+                    { role: "system", content: "Eres CatGPT, un asistente gatuno amigable, tu personalidad va a ser siempre directo al grano. Solo responde basado en la información de la página: Felinos en En Accion es una pagina que busca solucionar la perdida de biodiversidad, enfocada en los felinos que estan en peligro de extincion. " },
+                    { role: "user", content: userMessage }
+                  ]
                 })
-            });
+              });
 
-            const data = await response.json();
-            const aiMessage = data.choices[0].message.content;
-            addMessage(aiMessage, 'ai');
+              const data = await response.json();
+              const aiMessage = data.choices[0].message.content;
+              addMessage(aiMessage, 'ai');
 
-        } catch(err) {
-            addMessage("¡Ups! Algo salió mal 😿", 'ai');
-            console.error(err);
-        }
-    }
-});
-</script>
+            } catch (err) {
+              addMessage("¡Ups! Algo salió mal 😿", 'ai');
+              console.error(err);
+            }
+          }
+        });
+      </script>
 
-</body>
-</html>
-</div>
+    </body>
 
-    <!-- Seccion FINAL -->
-    <div>
-      <hr>
-      Página creada por Lara Grettel, Agosto 2025
+    </html>
+  </div>
+
+  <!-- Seccion FINAL -->
+  <div>
+    <hr>
+    Página creada por Lara Grettel, actualizada Octubre 2025
 
 
-    </div>
+  </div>
   script src="catgpt.js"></script> <!-- al final del body -->
 </body>
+
 </html>
